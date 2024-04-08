@@ -20,7 +20,7 @@ Route::patch('/user', [UserController::class, 'update'])->name('user.update'); /
 Route::get('/films/{id}/similar', [FilmController::class, 'similar'])->name('films.similar');
 
 Route::get('/films', [FilmController::class, 'index'])->name('films.index');
-Route::get('/films/{id}', [FilmController::class, 'show']->name('films.show')); // TODO требует аутентификации
+Route::get('/films/{id}', [FilmController::class, 'show'])->name('films.show'); // TODO требует аутентификации
 Route::post('/films', [FilmController::class, 'store'])->name('films.store'); // TODO требует аутентификации
 Route::patch('/films/{id}', [FilmController::class, 'update'])->name('films.update'); // TODO требует аутентификации
 
