@@ -11,7 +11,7 @@ class PromoController extends Controller
      */
     public function store(Request $request)
     {
-        return 'store-ok';
+        return $this->success([]);
     }
 
     /**
@@ -19,7 +19,7 @@ class PromoController extends Controller
      */
     public function show()
     {
-        return 'show-ok';
+        return $this->success([]);
     }
 
 }

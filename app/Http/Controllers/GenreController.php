@@ -11,7 +11,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return 'Список жанров';
+        return $this->success([]);
     }
 
     /**
@@ -19,6 +19,6 @@ class GenreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        return 'редактировние';
+        return $this->success([]);
     }
 }

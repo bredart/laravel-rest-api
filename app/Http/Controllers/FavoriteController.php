@@ -13,7 +13,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        return $this->success([]);
     }
 
     /**
@@ -22,7 +22,7 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->success([]);
     }
 
     /**
@@ -30,6 +30,6 @@ class FavoriteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return $this->success([]);
     }
 }

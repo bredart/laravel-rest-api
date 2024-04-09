@@ -12,7 +12,7 @@ class CommentController extends Controller
      */
     public function index(int $id)
     {
-        //
+        return $this->success([]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CommentController extends Controller
      */
     public function store(Request $request, Film $film)
     {
-        //
+        return $this->success([]);
     }
 
     /**
@@ -30,7 +30,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $this->success([]);
     }
 
     /**
@@ -38,6 +38,6 @@ class CommentController extends Controller
      */
     public function destroy(Request $request, string $id)
     {
-        //
+        return $this->success([]);
     }
 }

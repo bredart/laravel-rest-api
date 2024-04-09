@@ -11,7 +11,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $this->success([]);
     }
 
     /**
@@ -19,6 +19,6 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $this->success([]);
     }
 }
