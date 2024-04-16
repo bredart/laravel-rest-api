@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class FilmController extends Controller
      */
     public function index()
     {
-       return $this->success([]);
+        $films = Film::all();
+        return $this->success([$films]);
     }
 
     /**
