@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             ->has(Comment::factory(5))
             ->create();
 
-//        Comment::factory(10)->create();
+        Comment::factory(10)->create();
 
     }
 }

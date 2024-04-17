@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Film;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CommentController extends Controller
 {
     /**
      * Получение списка отзывов к фильму
-     * //TODO $id заменить на модель Film
+     * @return
      */
-    public function index(int $id)
+    public function index(Film $film)
     {
-        return $this->success([]);
+        /*
+         * Метод принимает на вход id фильма, в случае отсутствия такового — возвращается 404 ошибка.
+        Возвращает список отзывов. Каждый отзыв содержит: текст отзыва, имя автора, дату написания отзыва.
+        Так же может содержать оценку.
+         */
+//        return $this->success($film->comments()->get());
+
+        return $this->success($film->comments()->get());
     }
 
     /**
@@ -36,8 +46,16 @@ class CommentController extends Controller
     /**
      * Удаление комментария
      */
-    public function destroy(Request $request, string $id)
+    public function destroy(Comment $comment)
     {
-        return $this->success([]);
+        if (Gate::allows('comment-delete', $comment)) {
+            // Юзер авторизован для выполнения этого действия
+
+            $comment->delete();
+            return $this->success(null, 201);
+        } else {
+            // Юзер не имеет доступа к удалению комментария
+            abort(403);
+        }
     }
 }

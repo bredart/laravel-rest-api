@@ -13,6 +13,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ROLE_USER = 0;
+    public const ROLE_MODERATOR = 1;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -54,4 +58,11 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * @return bool
+     */
+    public function isModerator()
+    {
+        return $this->role_id === self::ROLE_MODERATOR;
+    }
 }

@@ -34,14 +34,14 @@ Route::controller(FilmController::class)
         Route::patch('/films/{id}', 'update')->name('films.update'); // TODO требует аутентификации
     });
 
-Route::get('films/{id}/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::get('films/{film}/comments', [CommentController::class, 'index'])->name('comments.index');
 
 Route::controller(CommentController::class)
     ->middleware('auth:sanctum')
     ->group(function () {
         Route::post('films/{id}/comments', 'store')->name('comments.store'); // TODO требует аутентификации
         Route::patch('comments/{comment}', 'update')->name('comments.update'); // TODO требует аутентификации
-        Route::delete('comments/{comment}', 'destroy')->name('comments.destroy'); // TODO требует аутентификации
+        Route::delete('comments/{comment}', 'destroy')->name('comments.destroy'); // TODO требует аутентификации role-moderator
     });
 
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
